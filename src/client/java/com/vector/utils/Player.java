@@ -23,8 +23,7 @@ public class Player {
                 player.getEquippedStack(EquipmentSlot.HEAD).isOf(ManaitaItems.Armor.MANAITA_HELMET) ||
                 player.getEquippedStack(EquipmentSlot.CHEST).isOf(ManaitaItems.Armor.MANAITA_CHEST) ||
                 player.getEquippedStack(EquipmentSlot.LEGS).isOf(ManaitaItems.Armor.MANAITA_LEGGING) ||
-                player.getEquippedStack(EquipmentSlot.FEET).isOf(ManaitaItems.Armor.MANAITA_BOOT) ||
-                player.getInventory().contains(ManaitaItems.Tools.MANAITA_BOW.getDefaultStack());
+                player.getEquippedStack(EquipmentSlot.FEET).isOf(ManaitaItems.Armor.MANAITA_BOOT);
     }
 
     public static boolean getMainHnadManaitaSwordGod(PlayerEntity player) {
