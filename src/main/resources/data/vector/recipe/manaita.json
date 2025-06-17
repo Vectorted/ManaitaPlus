@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "items",
+  "cookingtime": 20,
+  "experience": 1000,
+  "ingredient": ["vector:crafting_manaita", "vector:crafting_manaita_wooden", "vector:crafting_manaita_stone", "vector:crafting_manaita_iron", "vector:crafting_manaita_gold", "vector:crafting_manaita_redstone",
+    "vector:crafting_manaita_diamond", "vector:crafting_manaita_emerald"],
+  "result": {
+    "id": "vector:manaita"
+  }
+}

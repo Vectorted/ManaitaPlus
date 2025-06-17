@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": ["vector:crafting_manaita", "vector:crafting_manaita_wooden", "vector:crafting_manaita_stone", "vector:crafting_manaita_iron", "vector:crafting_manaita_gold", "vector:crafting_manaita_redstone",
+      "vector:crafting_manaita_diamond", "vector:crafting_manaita_emerald"]
+  },
+  "pattern": [
+    "X X",
+    "XXX",
+    "XXX"
+  ],
+  "result": {
+    "count": 1,
+    "id": "vector:manaita_chest"
+  }
+}

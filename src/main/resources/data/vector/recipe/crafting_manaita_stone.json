@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": "vector:crafting_manaita",
+    "Z": ["minecraft:cobblestone"]
+  },
+  "pattern": [
+    "ZX ",
+    "   ",
+    "   "
+  ],
+  "result": {
+    "count": 1,
+    "id": "vector:crafting_manaita_stone"
+  }
+}

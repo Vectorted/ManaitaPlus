@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "vector:item/player_crafting_manaita_emerald"
+  }
+}

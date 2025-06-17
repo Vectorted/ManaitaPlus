@@ -1,0 +1,15 @@
+{
+	"required": true,
+	"package": "com.vector.mixin.client",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"NightClientMixin",
+		"ClientPlayerMixin",
+		"EntityMixin",
+		"LightningEntityMixin",
+		"ArrowEntityMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

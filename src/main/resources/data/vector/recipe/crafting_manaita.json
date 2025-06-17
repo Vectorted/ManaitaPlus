@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": "minecraft:crafting_table",
+    "Z": ["minecraft:diamond_block"]
+  },
+  "pattern": [
+    "ZZZ",
+    "X X",
+    "ZZZ"
+  ],
+  "result": {
+    "count": 1,
+    "id": "vector:crafting_manaita"
+  }
+}
