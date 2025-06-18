@@ -48,7 +48,6 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	implementation "org.json:json:20240303"
-	//modCompileOnly"meteordevelopment:baritone:${project["baritone_version"] as String}-SNAPSHOT"
 
 	//ScriptAPI
 	implementation files("libs/rhino-1.8.1.jar")
