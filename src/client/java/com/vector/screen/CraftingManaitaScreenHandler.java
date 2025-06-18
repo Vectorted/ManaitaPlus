@@ -30,6 +30,10 @@ public class CraftingManaitaScreenHandler extends CraftingScreenHandler {
 
     static int fold = 1;
 
+    static ItemStack manaita;
+
+    boolean filling;
+
     public CraftingManaitaScreenHandler(int syncId, PlayerInventory playerInventory, int maxFold) {
         super(syncId, playerInventory);
         craftingManaitaScreenHandler = this;
@@ -41,7 +45,7 @@ public class CraftingManaitaScreenHandler extends CraftingScreenHandler {
         List<Slot> _slots = new ArrayList<>();
 
         slots.forEach(slot -> {
-            if(!slot.getStack().isEmpty()) {
+            if(!slot.getStack().isEmpty() && slot.getStack().getCount() == 1) {
                 _slots.add(slot);
             }
         });
@@ -56,7 +60,8 @@ public class CraftingManaitaScreenHandler extends CraftingScreenHandler {
 
         if(size == 2) {
             for (int i = 0; i < size; i++) {
-                if (slots.get(i).getStack().isOf(ManaitaItems.Common.MANAITA)) {
+                ItemStack source = slots.get(i).getStack();
+                if (source.isOf(ManaitaItems.Common.MANAITA)) {
                     slots.remove(i);
                     return slots.get(0).getStack();
                 }
@@ -98,9 +103,10 @@ public class CraftingManaitaScreenHandler extends CraftingScreenHandler {
 
         ItemStack itemStack_return = ItemStack.EMPTY;
 
-        ItemStack a = getManaitaWithItem();
-        if(a != null) {
-            itemStack_return = new ItemStack(a.getItem(), a.getCount() * fold);
+        manaita = getManaitaWithItem();
+
+        if(manaita != null) {
+            itemStack_return = new ItemStack(manaita.getItem(),  fold);
         } else {
             itemStack_return = new ItemStack(itemStack.getItem(), itemStack.getCount() * fold);
         }
@@ -112,15 +118,23 @@ public class CraftingManaitaScreenHandler extends CraftingScreenHandler {
 
     @Override
     public void onInputSlotFillFinish(ServerWorld world, RecipeEntry<CraftingRecipe> recipe) {
+        this.filling = false;
         _updateResult(this, world, this.getPlayer(), this.craftingInventory, this.craftingResultInventory, null);
     }
 
     @Override
-    public void onContentChanged(Inventory inventory) {
-        World world = this.getPlayer().getWorld();
+    public void onInputSlotFillStart() {
+        this.filling = true;
+    }
 
-        if (world instanceof ServerWorld) {
-            _updateResult(this, (ServerWorld) world, this.getPlayer(), this.craftingInventory, this.craftingResultInventory, null);
+    @Override
+    public void onContentChanged(Inventory inventory) {
+        if(!this.filling) {
+            World world = this.getPlayer().getWorld();
+
+            if (world instanceof ServerWorld) {
+                _updateResult(this, (ServerWorld) world, this.getPlayer(), this.craftingInventory, this.craftingResultInventory, null);
+            }
         }
     }
     @Override
