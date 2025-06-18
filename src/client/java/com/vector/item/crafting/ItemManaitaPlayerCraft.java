@@ -22,7 +22,7 @@ public class ItemManaitaPlayerCraft extends Item {
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
 
         if(user.isSneaking()) {
-            int data  = fold * 2;
+            int data = fold * 2;
             if(data < maxFold) {
                 fold = data;
             } else fold = 64;
