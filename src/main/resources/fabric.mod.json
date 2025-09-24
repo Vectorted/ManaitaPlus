@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "manaita",
 	"version": "${version}",
-	"name": "ManaitaPlus - 1.4.2",
+	"name": "ManaitaPlus - 1.4.5",
 	"description": "Restore Minecraft Forge 1.7.10 better cutting board, port Fabric load.",
 	"authors": [
 		"Async"
@@ -31,7 +31,7 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.16.14",
-		"minecraft": "~1.21.5",
+		"minecraft": "~1.21.8",
 		"java": ">=21",
 		"fabric-api": "*"
 	},
