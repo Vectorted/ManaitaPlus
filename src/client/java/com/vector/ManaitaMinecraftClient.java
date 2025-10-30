@@ -1,12 +1,12 @@
 package com.vector;
 
+import com.vector.entity.EntityInitializer;
 import com.vector.item.ManaitaItems;
 import com.vector.render.Lightning;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
-import net.minecraft.entity.EntityType;
+import net.minecraft.client.render.entity.EntityRendererFactories;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -22,7 +22,7 @@ public class ManaitaMinecraftClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		EntityRendererRegistry.register(EntityType.LIGHTNING_BOLT, Lightning::new);
+		EntityRendererFactories.register(EntityInitializer.Entity_LIGHTNING, Lightning::new);
 
 		ManaitaItems.Crafting.getAll().forEach(crafting -> {
 			TradeOfferHelper.registerVillagerOffers(VillagerProfession.WEAPONSMITH,1,  factories -> {
@@ -38,7 +38,7 @@ public class ManaitaMinecraftClient implements ClientModInitializer {
 					new TradedItem(Items.NETHER_STAR, 64),
 					Optional.of(new TradedItem(ManaitaItems.Tools.MANAITA_BOW, 1)),
 					new ItemStack(ManaitaItems.Tools.MANAITA_SWORD_GOD,1),
-					1,1000,0.0f
+					1,10000,0.0f
 			));
 		});
 
@@ -48,7 +48,7 @@ public class ManaitaMinecraftClient implements ClientModInitializer {
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			if (client.player != null) {
 
-				client.player.getWorld().getPlayers().forEach(play -> {
+				client.player.getEntityWorld().getPlayers().forEach(play -> {
 					player = client.player;
 				});
 			}
